@@ -3,7 +3,6 @@ import { Button } from './ui/Button';
 import { Tag } from './ui/Tag';
 import { Switch } from './ui/Switch';
 
-// This is a placeholder icon. You can import a real one from your assets folder.
 const ImageIcon = () => (
     <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M21.25 3.75H2.75C2.10228 3.75 1.75 4.10228 1.75 4.75V19.25C1.75 19.8977 2.10228 20.25 2.75 20.25H21.25C21.8977 20.25 22.25 19.8977 22.25 19.25V4.75C22.25 4.10228 21.8977 3.75 21.25 3.75Z" stroke="#373ae5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -63,7 +62,7 @@ export const CardShowcase = () => {
               {showPrimaryTag && <Tag label="Tags" variant="primary" />}
             </div>
           </div>
-          <div className="p-3x flex flex-col gap-1x">
+          <div className="p-2x flex flex-col gap-1x">
             <h4 className="text-l font-medium text-digital-900">Title</h4>
             {showResortName && <p className="text-m font-normal text-digital-900">Resort name</p>}
             {showRoomDetails && <p className="text-s font-normal text-gray-600">520 sq ft • 2 beds • 3 guests</p>}
@@ -79,12 +78,14 @@ export const CardShowcase = () => {
               </div>
             )}
             <div className="pt-2x">
+              {/* This line was missing */}
+              {buttonType === 'Single' && <Button label="View Details" variant="tertiary" size="medium" className="w-full" />}
               {buttonType === 'Double' && (
-  <div className="flex gap-1x">
-    <Button label="Order" variant="tertiary" size="medium" className="grow" />
-    <Button label="Find a table" variant="secondary" size="medium" className="grow" />
-  </div>
-)}
+                <div className="flex gap-1x">
+                  <Button label="Order" variant="tertiary" size="medium" className="grow" />
+                  <Button label="Find a table" variant="secondary" size="medium" className="grow" />
+                </div>
+              )}
             </div>
           </div>
         </div>
