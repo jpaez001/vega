@@ -3,10 +3,10 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { twMerge } from 'tailwind-merge';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center rounded-lg font-normal transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2',
+  // The corner radius is changed here from rounded-lg to rounded-[6px]
+  'inline-flex items-center justify-center rounded-[6px] font-normal transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2',
   {
     variants: {
-      // We are adding 'secondary' here
       variant: {
         primary: [
           'text-white',
@@ -16,12 +16,16 @@ const buttonVariants = cva(
           'focus:ring-[#292CB7]',
           'disabled:bg-[#747474] disabled:cursor-not-allowed',
         ],
-        // THIS IS THE NEW VARIANT FOR OUR CONTROLS
         secondary: [
           'bg-white text-slate-800 border border-slate-300',
           'hover:bg-slate-100',
           'active:scale-[.98]',
           'disabled:bg-slate-100 disabled:text-slate-400 disabled:border-slate-200',
+        ],
+        tertiary: [
+          'bg-transparent border border-digital-900 text-digital-900',
+          'hover:bg-digital-50',
+          'active:scale-[.98]',
         ],
       },
       size: {

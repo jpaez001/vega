@@ -1,9 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+/* =============================================== */
+/* Calibre Font Family Setup                       */
+/* =============================================== */
+
+/* --- Regular (Weight 400) --- */
+@font-face {
+  font-family: 'Calibre-R';
+  src: url('/fonts/Calibre-R-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Calibre-R';
+  src: url('/fonts/Calibre-R-RegularItalic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* --- Medium (Weight 500) --- */
+@font-face {
+  font-family: 'Calibre-R';
+  src: url('/fonts/Calibre-R-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* --- Semibold (Weight 600) --- */
+@font-face {
+  font-family: 'Calibre-R';
+  src: url('/fonts/Calibre-R-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* --- Bold (Weight 700) --- */
+@font-face {
+  font-family: 'Calibre-R';
+  src: url('/fonts/Calibre-R-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Calibre-R';
+  src: url('/fonts/Calibre-R-BoldItalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+}
+
 
 /* Your @tailwind rules go below this */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
