@@ -83,7 +83,7 @@ export const CardShowcase = () => {
               {buttonType === 'Double' && (
                 <div className="flex gap-1x">
                   <Button label="Order" variant="tertiary" size="medium" className="grow" />
-                  <Button label="Find a table" variant="secondary" size="medium" className="grow" />
+                  <Button label="Find a table" variant="tertiary" size="medium" className="grow" />
                 </div>
               )}
             </div>
