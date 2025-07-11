@@ -29,9 +29,9 @@ const buttonVariants = cva(
         ],
       },
       size: {
-        large: 'h-14 px-4 gap-2',
-        medium: 'h-10 px-3 gap-1.5',
-      },
+  large: 'h-14 px-4 gap-2 text-m',
+  medium: 'h-10 px-3 gap-1.5 text-s', // text-s is 14px
+},
     },
     defaultVariants: {
       variant: 'primary',

@@ -79,13 +79,12 @@ export const CardShowcase = () => {
               </div>
             )}
             <div className="pt-2x">
-              {buttonType === 'Single' && <Button label="View Details" variant="tertiary" size="large" className="w-full" />}
               {buttonType === 'Double' && (
-                <div className="flex gap-1x">
-                  <Button label="Secondary" variant="secondary" size="large" className="w-full" />
-                  <Button label="Primary" variant="primary" size="large" className="w-full" />
-                </div>
-              )}
+  <div className="flex gap-1x">
+    <Button label="Order" variant="tertiary" size="medium" className="grow" />
+    <Button label="Find a table" variant="secondary" size="medium" className="grow" />
+  </div>
+)}
             </div>
           </div>
         </div>
