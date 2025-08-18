@@ -53,3 +53,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Token-based gradient for primary interaction */
+.btn-gradient-primary {
+  background: linear-gradient(206deg, #373ae5 0%, #292cb7 52.08%);
+}
+
+/* Showcase visual helpers */
+.showcase-panel {
+  background: #eef1f9;         /* neutral surface that matches your screenshots */
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #dde3f0;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 9999px;
+  border: 1px solid #dde3f0;
+  background: #fff;
+  font-size: 14px;
+}
+.pill.is-active {
+  background: #0c0b2b;         /* near-black navy used in your references */
+  color: #fff;
+  box-shadow: 0 0 0 2px #c2c7ff inset; /* subtle inner outline */
+}

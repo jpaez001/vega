@@ -1,66 +1,120 @@
-import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from './Button';
-
-// You will need to import one of your icons here!
-// Find an icon from 'src/assets/icons' and import it.
-// Example: import { Svg3Mjex1N7Am } from '../../../assets/icons/svg-3mjex1n7am';
-
-// Temporary placeholder icon if you don't have one ready
-const PlaceholderIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M21 21L15.0001 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-);
-
+// src/components/ui/Button.stories.tsx
+import type { Meta, StoryObj } from "@storybook/react";
+import { Button, FabButton, IconButton } from "./Button";
+import { Search, ChevronRight, X, List } from "lucide-react";
 
 const meta: Meta<typeof Button> = {
-  title: 'UI/Button', // This will show up as "UI/Button" in the Storybook sidebar
+  title: "UI/Button",
   component: Button,
+  tags: ["autodocs"],
   argTypes: {
-    label: { control: 'text' },
-    variant: {
-      control: 'select',
-      options: ['primary'],
-    },
-    size: {
-      control: 'select',
-      options: ['large', 'medium'],
-    },
-    disabled: { control: 'boolean' },
-    onClick: { action: 'clicked' },
+    variant: { control: { type: "select" }, options: ["primary", "secondary", "tertiary"] },
+    size: { control: { type: "inline-radio" }, options: ["sm", "md", "lg"] },
+    state: { control: { type: "inline-radio" }, options: ["default", "hover", "focused", "pressed", "disabled"] },
+    loading: { control: "boolean" },
   },
 };
-
 export default meta;
+
 type Story = StoryObj<typeof Button>;
 
-// A story for the default Primary button
-export const Primary: Story = {
+export const Playground: Story = {
   args: {
-    variant: 'primary',
-    size: 'large',
-    label: 'Button Label',
-    disabled: false,
+    children: "Button label",
+    variant: "primary",
+    size: "md",
+    state: "default",
+    startIcon: <Search className="h-5 w-5" />,
+    endIcon: <ChevronRight className="h-5 w-5" />,
+    loading: false,
   },
 };
 
-// A story for the button with an icon
-export const WithIcon: Story = {
+export const AllStates: Story = {
+  render: (args) => (
+    <div className="flex flex-col gap-6">
+      <div className="flex items-center gap-3">
+        <Button {...args} state="default">Primary</Button>
+        <Button {...args} state="hover">Hover</Button>
+        <Button {...args} state="focused">Focused</Button>
+        <Button {...args} state="pressed">Pressed</Button>
+        <Button {...args} state="disabled">Disabled</Button>
+      </div>
+
+      <div className="flex items-center gap-3">
+        <Button {...args} variant="secondary" state="default">Secondary</Button>
+        <Button {...args} variant="secondary" state="hover">Hover</Button>
+        <Button {...args} variant="secondary" state="focused">Focused</Button>
+        <Button {...args} variant="secondary" state="pressed">Pressed</Button>
+        <Button {...args} variant="secondary" state="disabled">Disabled</Button>
+      </div>
+
+      <div className="flex items-center gap-3">
+        <Button {...args} variant="tertiary" state="default">Tertiary</Button>
+        <Button {...args} variant="tertiary" state="hover">Hover</Button>
+        <Button {...args} variant="tertiary" state="focused">Focused</Button>
+        <Button {...args} variant="tertiary" state="pressed">Pressed</Button>
+        <Button {...args} variant="tertiary" state="disabled">Disabled</Button>
+      </div>
+    </div>
+  ),
   args: {
-    ...Primary.args, // Inherits args from the Primary story
-    label: 'Search',
-    // Replace PlaceholderIcon with your real icon component
-    icon: <PlaceholderIcon />, 
+    variant: "primary",
+    size: "md",
+    startIcon: <Search className="h-5 w-5" />,
+    endIcon: <ChevronRight className="h-5 w-5" />,
+    loading: false,
   },
 };
 
-// A story specifically for the Disabled state
-export const Disabled: Story = {
-  args: {
-    ...Primary.args,
-    label: 'Disabled',
-    disabled: true,
-  },
+/* ===== FAB & IconButton stories ===== */
+
+export const FAB: Story = {
+  render: () => (
+    <div className="flex flex-col gap-4">
+      <FabButton icon={List} state="default" />
+      <FabButton icon={List} state="focused" />
+      <FabButton icon={List} state="pressed" />
+      <FabButton icon={List} state="disabled" />
+    </div>
+  ),
 };
-// Add this new story to the bottom of your Button.stories.tsx file
+
+export const IconButtons: Story = {
+  render: () => (
+    <div className="flex flex-col gap-6">
+      <section>
+        <h4 className="mb-2 font-semibold">Default</h4>
+        <div className="flex gap-3">
+          <IconButton variant="default" icon={X} state="default" />
+          <IconButton variant="default" icon={X} state="hover" />
+          <IconButton variant="default" icon={X} state="focused" />
+          <IconButton variant="default" icon={X} state="pressed" />
+          <IconButton variant="default" icon={X} state="disabled" />
+        </div>
+      </section>
+
+      <section>
+        <h4 className="mb-2 font-semibold">Outlined</h4>
+        <div className="flex gap-3">
+          <IconButton variant="outlined" icon={ChevronRight} state="default" />
+          <IconButton variant="outlined" icon={ChevronRight} state="hover" />
+          <IconButton variant="outlined" icon={ChevronRight} state="focused" />
+          <IconButton variant="outlined" icon={ChevronRight} state="pressed" />
+          <IconButton variant="outlined" icon={ChevronRight} state="disabled" />
+        </div>
+      </section>
+
+      <section>
+        <h4 className="mb-2 font-semibold">Filled</h4>
+        <div className="flex gap-3">
+          <IconButton variant="filled" icon={ChevronRight} state="default" />
+          <IconButton variant="filled" icon={ChevronRight} state="hover" />
+          <IconButton variant="filled" icon={ChevronRight} state="focused" />
+          <IconButton variant="filled" icon={ChevronRight} state="pressed" />
+          <IconButton variant="filled" icon={ChevronRight} state="disabled" />
+        </div>
+      </section>
+    </div>
+  ),
+};
